@@ -5,14 +5,17 @@ import {WebView} from "react-native";
 const rawHtml="<html><head></head><body><p>Hello <a href='http://flexwork.io'>flexwork.io</a></p></body></html>";
 const script = `
 <script>
+const load = () => {
 	window.location.hash = 1;
-    var calculator = document.createElement("div");
-    calculator.id = "height-calculator";
-    while (document.body.firstChild) {
-        calculator.appendChild(document.body.firstChild);
-    }
+	var calculator = document.createElement("div");
+	calculator.id = "height-calculator";
+	while (document.body.firstChild) {
+		calculator.appendChild(document.body.firstChild);
+  	}
 	document.body.appendChild(calculator);
-    document.title = calculator.scrollHeight;
+  	document.title = calculator.scrollHeight;
+}
+window.onload = load;
 </script>
 `;
 const style = `
